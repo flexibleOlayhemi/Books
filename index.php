@@ -21,8 +21,8 @@ createDatabase();
 	<div class="container" >
 		<div calss="forminput">
 			<form action="index.php" method="post">
-				<p class="details">ID: </p><input type="text" name="id" plsceholder="id">
-				<p class="details">Publisher: </p><input type="text" name="publisher" plsceholder="id">
+				<p class="details"><label for="ID">ID: </label></p><input type="text" name="id" plsceholder="id">
+				<p class="details"><label for="publisher">Publisher:</label> </p><input type="text" name="publisher" plsceholder="id">
 				<p class="details">Name: </p><input type="text" name="name" plsceholder="name">
 				<p class="details">Price: </p><input type="text" name="price" plsceholder="price"></br>
 				<button class="btn" name="create">create</button>
