@@ -46,7 +46,7 @@ createDatabase();
 				    <div class="input-group-prepend">
 				      <span class="input-group-text bg-warning"><i class="fas fa-id-badge"></i></span>
 				    </div>
-				    <input type="text" class="form-control" name="id" placeholder="ID">
+				    <input type="text" class="form-control" name="id" placeholder="ID" disabled="true">
 				 </div>
 				 </div>
 
