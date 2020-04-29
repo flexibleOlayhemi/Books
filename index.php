@@ -10,33 +10,96 @@ createDatabase();
 <html>
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport"
-		content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 	<title>Bookstore</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<!--<link rel="stylesheet" type="text/css" href="style.css">-->
 	<script type="text/javascript" src="jquery.js"></script>
-</head>
-<body>
-	<div class="container" >
-		<div calss="forminput">
-			<form action="index.php" method="post">
-				<p class="details"><label for="ID">ID: </label></p><input type="text" name="id" plsceholder="id">
-				<p class="details"><label for="publisher">Publisher:</label> </p><input type="text" name="publisher" plsceholder="id">
-				<p class="details">Name: </p><input type="text" name="name" plsceholder="name">
-				<p class="details">Price: </p><input type="text" name="price" plsceholder="price"></br>
-				<button class="btn" name="create">create</button>
-				<button class="btn" name="read">Read</button>
-				<button class="btn" name="update">Update</button>
-				<button class="btn" name="delete">Delete</button>
-				<?php deleteAllbutton(); ?>
-			
+	<style>
+		.d-flex button{
 
+		margin : 1.5em 0.6em;
+		padding: 0.5em 2.4em;
+	}
+	
+	table .btnedit{
+		color: lightsalmon;
+		cursor: pointer;
+	}
+
+	</style>
+</head>
+<body background="bg.jpg">
+	<main class="container">
+		<div class="container text-center">
+			<h1 class="py-4 bg-dark text-light rounded"><i class="fas fa-swatchbook"></i>Book Store</h1>
+		</div>
+		<div class="d-flex justify-content-center">
+			<form action="index.php" method="post" class="w-50">
+				<div class="py-2">
+				<div class="input-group mb-3">
+				    <div class="input-group-prepend">
+				      <span class="input-group-text bg-warning"><i class="fas fa-id-badge"></i></span>
+				    </div>
+				    <input type="text" class="form-control" name="id" placeholder="ID">
+				 </div>
+				 </div>
+
+				 <div class="pt-2">
+				 	<div class="input-group mb-3">
+				    <div class="input-group-prepend">
+				      <span class="input-group-text bg-warning"><i class="fas fa-people-carry"></i></span>
+				    </div>
+				    <input type="text" class="form-control" name="publisher" placeholder="Publisher">
+				 </div>
+				 </div>
+				 <div class="row">
+				 	<div class="col">
+						 <div class="pt-2">
+						 	<div class="input-group mb-3">
+						    <div class="input-group-prepend">
+						      <span class="input-group-text bg-warning"><i class="fas fa-book"></i></span>
+						    </div>
+						    <input type="text" class="form-control" name="name" placeholder="name">
+						 </div>
+						 </div> 
+					</div>
+
+					<div class="col">
+						 <div class="py-2">
+						 	<div class="input-group mb-3">
+						    <div class="input-group-prepend">
+						      <span class="input-group-text bg-warning"><i class="fas fa-dollar-sign"></i></span>
+						    </div>
+						    <input type="text" class="form-control" name="price" placeholder="price">
+						 </div>
+						 </div>
+					</div>
+
+				 </div>
+				
+				
+			<div class="d-flex justify-content-center">
+				<button class="btn btn-success" name="create" data-toggle="tooltip" data-placement="bottom" title="Create"><i class="fas fa-plus"></i></button>
+				<button class="btn btn-primary" name="read" data-toggle="tooltip" data-placement="bottom" title="Read"><i class="fas fa-sync"></i></button>
+				<button class="btn btn-warning" name="update" data-toggle="tooltip" data-placement="bottom" title="Update"><i class="fas fa-pen-alt"></i></button>
+				<button class="btn btn-danger" name="delete" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fas fa-trash-alt"></i></button>
+				<?php deleteAllbutton(); ?>
+			</div>
 			</form>
-			<div class ="outputTable">
-					<table>
-						<thead>
-							<tr class ="hClass">
+		</div>
+
+		<div class="container">
+		<div class ="d-flex table-data">
+			<div class="table table-striped ">
+  				<table class="table" >
+						<thead class="thead-dark">
+							<tr>
 								<th>ID</th>
 								<th>Book Name</th>
 								<th>Publisher</th>
@@ -44,6 +107,7 @@ createDatabase();
 								<th>Edit</th>
 							</tr>
 						</thead>
+
 						<tbody id="tbody">
 							<?php 
 								if (isset($_POST['read'])){
@@ -56,8 +120,8 @@ createDatabase();
 												<td data-id="<?php echo $rows['id']; ?>"><?php echo $rows['id']; ?></td>
 												<td data-id="<?php echo $rows['id']; ?>"><?php echo $rows['book_name']; ?></td>
 												<td data-id="<?php echo $rows['id']; ?>"><?php echo $rows['book_publisher']; ?></td>
-												<td data-id="<?php echo $rows['id']; ?>"><?php echo $rows['book_price']; ?></td>
-												<td><button class="edit" name= "edit" data-id="<?php echo $rows['id']; ?>">edit</button></td>
+												<td data-id="<?php echo $rows['id']; ?>"><?php echo '$'.$rows['book_price']; ?></td>
+												<td><button class="edit" name= "edit" data-id="<?php echo $rows['id']; ?>"><i class="fas fa-edit btnedit"></i></button></td>
 											</tr>
 									<?php 
 										}
@@ -68,10 +132,10 @@ createDatabase();
 							 ?>
 						</tbody>
 					</table>
-				</div>
 		</div>
+		</div>
+	</main>
 		
-	</div>
 <script type="text/javascript" src="main.js"></script>
 </body>
 </html>

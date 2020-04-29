@@ -140,7 +140,7 @@ function deleteAllbutton(){
  }
 
 function addButton(){
-	echo "<button class=\"btn\" name=\"deleteAll\">Delete All</button>";
+	echo "<button class=\"btn btn-danger\" name=\"deleteAll\" data-toggle=\"tooltip\" data-placement=\"bottom\" title=\"Delete All\"><i class=\"fas fa-trash-alt\"></i></button>";
 }
 
 ?>
