@@ -46,7 +46,7 @@ createDatabase();
 				    <div class="input-group-prepend">
 				      <span class="input-group-text bg-warning"><i class="fas fa-id-badge"></i></span>
 				    </div>
-				    <input type="text" class="form-control" name="id" placeholder="ID" disabled="true">
+				    <input type="text" class="form-control" name="id" placeholder="ID" >
 				 </div>
 				 </div>
 
@@ -121,7 +121,7 @@ createDatabase();
 												<td data-id="<?php echo $rows['id']; ?>"><?php echo $rows['book_name']; ?></td>
 												<td data-id="<?php echo $rows['id']; ?>"><?php echo $rows['book_publisher']; ?></td>
 												<td data-id="<?php echo $rows['id']; ?>"><?php echo '$'.$rows['book_price']; ?></td>
-												<td><button class="edit" name= "edit" data-id="<?php echo $rows['id']; ?>"><i class="fas fa-edit btnedit"></i></button></td>
+												<td><i name= "edit" class="fas fa-edit btnedit" data-id="<?php echo $rows['id']; ?>"></i></td>
 											</tr>
 									<?php 
 										}

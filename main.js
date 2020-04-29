@@ -1,4 +1,4 @@
-$(".edit").click(e =>{
+$(".btnedit").click(e =>{
 
 	let textvalues = displayData(e);
 	let id = $("input[name*='id']");
